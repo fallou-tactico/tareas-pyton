@@ -31,5 +31,4 @@ def obtener_guardar_y_sumar_primos(limite, archivo_salida):
 
 if __name__ == "__main__":
     LIMITE = 2_000_000
-    NOMBRE_ARCHIVO = "primos_2M.txt"
-    obtener_guardar_y_sumar_primos(LIMITE, NOMBRE_ARCHIVO)
+    
