@@ -25,10 +25,7 @@ def obtener_guardar_y_sumar_primos(limite, archivo_salida):
     fin = time.time()
     tiempo_total = fin - inicio
 
-    print(f"\n--- Resultados ---")
-    print(f"Total de primos encontrados: {len(primos):,}")
     print(f"Suma total de los primos:    {suma_total:,}")
-    print(f"Tiempo de ejecución:        {tiempo_total:.2f} segundos")
     print(f"Archivo guardado como:       {archivo_salida}")
 
 
