@@ -5,6 +5,7 @@ def obtener_guardar_y_sumar_primos(limite, archivo_salida):
     print(f"Calculando números primos del 1 al {limite:,}...")
     inicio = time.time()
 
+    # Criba de Eratóstenes
     es_primo = [True] * (limite + 1)
     es_primo[0] = es_primo[1] = False
 
@@ -13,10 +14,13 @@ def obtener_guardar_y_sumar_primos(limite, archivo_salida):
             for j in range(i * i, limite + 1, i):
                 es_primo[j] = False
 
+    # Filtrar la lista con todos los números primos
     primos = [num for num, primo in enumerate(es_primo) if primo]
 
+    # Sumar todos los primos encontrados
     suma_total = sum(primos)
 
+    # Guardar los números primos en el archivo de texto
     print("Guardando resultados en el archivo...")
     with open(archivo_salida, "w", encoding="utf-8") as archivo:
         for numero in primos:
@@ -25,10 +29,15 @@ def obtener_guardar_y_sumar_primos(limite, archivo_salida):
     fin = time.time()
     tiempo_total = fin - inicio
 
+    print(f"\n--- Resultados ---")
+    print(f"Total de primos encontrados: {len(primos):,}")
     print(f"Suma total de los primos:    {suma_total:,}")
+    print(f"Tiempo de ejecución:        {tiempo_total:.2f} segundos")
     print(f"Archivo guardado como:       {archivo_salida}")
 
 
 if __name__ == "__main__":
     LIMITE = 2_000_000
+    NOMBRE_ARCHIVO = "primos_2M.txt"
+    obtener_guardar_y_sumar_primos(LIMITE, NOMBRE_ARCHIVO)
     
